@@ -1,7 +1,7 @@
-import sys 
-import os
-import yaml
 import flask
+import yaml
+# import sys 
+# import os
 
 app = flask.Flask(__name__)
 
@@ -12,7 +12,7 @@ def index():
     url = flask.request.args.get("url")
     return fetch_website(version, url)
 
-        
+
 CONFIG = {"API_KEY": "771df488714111d39138eb60df756e6b"}
 class Person(object):
     def __init__(self, name):
@@ -39,10 +39,11 @@ def load_yaml(filename):
     stream = open(filename)
     deserialized_data = yaml.load(stream, Loader=yaml.Loader) #deserializing data
     return deserialized_data
-    
+
 def authenticate(password):
     # Assert that the password is correct
     assert password == "Iloveyou", "Invalid password!"
+#FIXME: wth is this above ↑↑↑↑??
     print("Successfully authenticated!")
 
 if __name__ == '__main__':
